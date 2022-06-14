@@ -1,0 +1,13 @@
+FROM postgres:9.4
+WORKDIR /data
+VOLUME /data
+ENV POSTGRES_USER=billing
+ENV POSTGRES_PASSWORD=YmlsbGluZ2FjY291bnQ=
+ENV POSTGRES_DB=billing
+EXPOSE 5432
+
+
+# FIRST: docker network create -d bridge billing_net
+# PRIORITY: 1
+# docker build --pull --rm -f "Dockerfile.postgres" -t postgres_billing:latest "."
+# docker run --rm -d  -p 5432:5432/tcp -h billing_db --net=billing_net postgres_billing:latest
